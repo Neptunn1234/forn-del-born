@@ -6,7 +6,7 @@
     <title>Neptunn | Webs con IA para empresas locales</title>
     <meta
       name="description"
-      content="Neptunn crea webs minimalistas y fiables con IA para empresas locales en Barcelona."
+      content="Neptunn crea webs claras y fiables con IA para empresas locales en Barcelona."
     />
     <link
       rel="icon"
@@ -15,15 +15,16 @@
     />
     <style>
       :root {
-        --space: #000616;
-        --space-2: #010d25;
-        --blue: #1768ff;
-        --blue-soft: #7eb4ff;
-        --ice: #eef6ff;
-        --muted: #9fb3d6;
-        --line: rgba(151, 190, 255, 0.2);
-        --white: #ffffff;
-        --shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
+        --space: #000512;
+        --space-2: #071632;
+        --blue: #2d7dff;
+        --blue-soft: #9ec8ff;
+        --ice: #f4f8ff;
+        --muted: #aab8d4;
+        --line: rgba(158, 200, 255, 0.2);
+        --panel: rgba(255, 255, 255, 0.045);
+        --panel-strong: rgba(255, 255, 255, 0.08);
+        --shadow: 0 28px 90px rgba(0, 0, 0, 0.36);
       }
 
       * {
@@ -36,13 +37,12 @@
 
       body {
         margin: 0;
+        color: var(--ice);
+        background:
+          linear-gradient(180deg, #000512 0%, #06142f 52%, #000512 100%);
         font-family:
           Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
           "Segoe UI", sans-serif;
-        color: var(--ice);
-        background:
-          radial-gradient(circle at 50% 18%, rgba(23, 104, 255, 0.22), transparent 36rem),
-          linear-gradient(180deg, #000616 0%, #010a1e 48%, #000616 100%);
         line-height: 1.6;
       }
 
@@ -56,124 +56,124 @@
         max-width: 100%;
       }
 
-      .page {
-        min-height: 100vh;
-        overflow: hidden;
+      .nav,
+      .hero,
+      .section,
+      .footer {
+        width: min(1080px, calc(100% - 32px));
+        margin: 0 auto;
       }
 
-      .nav {
+      .nav-shell {
         position: sticky;
         top: 0;
         z-index: 20;
         border-bottom: 1px solid var(--line);
-        background: rgba(0, 6, 22, 0.84);
-        backdrop-filter: blur(18px);
+        background: rgba(0, 5, 18, 0.88);
+        backdrop-filter: blur(16px);
       }
 
-      .nav-inner,
-      .hero,
-      .section-inner,
-      .footer {
-        width: min(1120px, calc(100% - 32px));
-        margin: 0 auto;
-      }
-
-      .nav-inner {
+      .nav {
         min-height: 72px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 20px;
+        gap: 18px;
       }
 
       .brand {
         display: inline-flex;
         align-items: center;
-        gap: 12px;
-        font-size: 0.92rem;
+        gap: 10px;
+        font-size: 0.9rem;
+        font-weight: 700;
         letter-spacing: 0.22rem;
         text-transform: uppercase;
-        font-weight: 700;
       }
 
-      .brand-orbit {
-        width: 38px;
-        height: 38px;
-        border: 1px solid rgba(126, 180, 255, 0.8);
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgba(158, 200, 255, 0.72);
         border-radius: 999px;
         display: grid;
         place-items: center;
-        box-shadow: 0 0 22px rgba(23, 104, 255, 0.42);
       }
 
-      .brand-planet {
-        width: 20px;
-        height: 20px;
+      .brand-mark::before {
+        content: "";
+        width: 18px;
+        height: 18px;
         border-radius: 999px;
-        background: radial-gradient(circle at 35% 28%, #8cc6ff 0, #1768ff 42%, #061741 78%);
+        background: linear-gradient(145deg, #9ec8ff 0%, #2d7dff 42%, #06142f 100%);
+      }
+
+      .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: 22px;
       }
 
       .nav-links {
         display: flex;
         align-items: center;
-        gap: 24px;
+        gap: 20px;
         color: var(--muted);
         font-size: 0.94rem;
       }
 
-      .nav-links a:hover {
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
         color: var(--ice);
-      }
-
-      .nav-actions {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-      }
-
-      .icon-button {
-        width: 42px;
-        height: 42px;
-        border-radius: 8px;
-        display: inline-grid;
-        place-items: center;
-        color: var(--ice);
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.04);
-        transition:
-          transform 180ms ease,
-          border-color 180ms ease,
-          background 180ms ease;
-      }
-
-      .icon-button:hover,
-      .icon-button:focus-visible {
-        transform: translateY(-2px);
-        border-color: rgba(126, 180, 255, 0.72);
-        background: rgba(23, 104, 255, 0.18);
         outline: none;
       }
 
-      .icon-button svg {
-        width: 20px;
-        height: 20px;
+      .language-switcher {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 4px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .language-switcher button {
+        min-width: 86px;
+        height: 34px;
+        border: 0;
+        border-radius: 6px;
+        color: var(--muted);
+        background: transparent;
+        font: inherit;
+        font-size: 0.82rem;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .language-switcher button[aria-pressed="true"] {
+        color: var(--space);
+        background: var(--ice);
       }
 
       .hero {
         min-height: calc(100vh - 72px);
-        padding: 66px 0 54px;
         display: grid;
-        grid-template-columns: 1.02fr 0.98fr;
-        align-items: center;
-        gap: 54px;
+        place-items: center;
+        padding: 62px 0 70px;
+        text-align: center;
       }
 
-      .eyebrow {
-        color: var(--blue-soft);
-        font-size: 0.8rem;
-        font-weight: 800;
-        letter-spacing: 0.18rem;
-        text-transform: uppercase;
+      .hero-inner {
+        width: min(780px, 100%);
+      }
+
+      .hero-logo {
+        width: min(590px, 100%);
+        margin: 0 auto 30px;
+        border-radius: 8px;
+        border: 1px solid rgba(158, 200, 255, 0.18);
+        box-shadow: var(--shadow);
       }
 
       h1,
@@ -183,29 +183,46 @@
         margin-top: 0;
       }
 
-      h1 {
-        margin: 18px 0 24px;
-        font-size: clamp(4.5rem, 12vw, 9.6rem);
-        line-height: 0.86;
-        letter-spacing: 0.34rem;
-        font-weight: 300;
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .eyebrow {
+        display: block;
+        margin-bottom: 12px;
+        color: var(--blue-soft);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.17rem;
         text-transform: uppercase;
       }
 
-      .hero-copy {
-        max-width: 640px;
+      .hero h2 {
+        margin-bottom: 14px;
+        font-size: clamp(2rem, 5vw, 4.35rem);
+        line-height: 0.96;
+        font-weight: 500;
       }
 
-      .hero-copy p {
-        max-width: 570px;
-        margin-bottom: 0;
+      .hero p {
+        width: min(650px, 100%);
+        margin: 0 auto;
         color: var(--muted);
-        font-size: clamp(1.06rem, 1.6vw, 1.24rem);
+        font-size: clamp(1.04rem, 1.7vw, 1.22rem);
       }
 
-      .hero-actions {
-        margin-top: 34px;
+      .contact-row {
+        margin: 34px auto 0;
         display: flex;
+        justify-content: center;
         flex-wrap: wrap;
         gap: 12px;
       }
@@ -216,304 +233,205 @@
         align-items: center;
         justify-content: center;
         gap: 10px;
-        border-radius: 8px;
         padding: 0 18px;
+        border-radius: 8px;
+        border: 1px solid rgba(158, 200, 255, 0.3);
+        color: var(--ice);
+        background: rgba(255, 255, 255, 0.055);
         font-weight: 800;
-        border: 1px solid transparent;
         transition:
           transform 180ms ease,
-          box-shadow 180ms ease,
-          border-color 180ms ease;
+          border-color 180ms ease,
+          background 180ms ease;
       }
 
       .button:hover,
       .button:focus-visible {
         transform: translateY(-2px);
+        border-color: rgba(158, 200, 255, 0.74);
         outline: none;
       }
 
       .button-primary {
         color: var(--space);
         background: var(--ice);
-        box-shadow: 0 18px 46px rgba(126, 180, 255, 0.22);
-      }
-
-      .button-secondary {
-        color: var(--ice);
-        border-color: rgba(126, 180, 255, 0.36);
-        background: rgba(255, 255, 255, 0.04);
-      }
-
-      .button svg {
-        width: 19px;
-        height: 19px;
-      }
-
-      .logo-frame {
-        position: relative;
-        border: 1px solid rgba(126, 180, 255, 0.18);
-        border-radius: 8px;
-        overflow: hidden;
-        background: rgba(255, 255, 255, 0.02);
-        box-shadow: var(--shadow);
-      }
-
-      .logo-frame::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(90deg, rgba(255, 255, 255, 0.05), transparent 40%),
-          radial-gradient(circle at 50% 50%, transparent 35%, rgba(0, 6, 22, 0.26) 100%);
-        pointer-events: none;
-      }
-
-      .logo-frame img {
-        width: 100%;
-        aspect-ratio: 1.12 / 1;
-        object-fit: cover;
-      }
-
-      .trust-strip {
-        margin-top: 18px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-      }
-
-      .trust-item {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        padding: 15px;
-        background: rgba(255, 255, 255, 0.035);
-        color: var(--muted);
-        font-size: 0.94rem;
-      }
-
-      .trust-item strong {
-        display: block;
-        margin-bottom: 2px;
-        color: var(--ice);
-        font-size: 0.9rem;
-      }
-
-      section {
-        border-top: 1px solid var(--line);
-      }
-
-      .section-inner {
-        padding: 86px 0;
-      }
-
-      .section-heading {
-        max-width: 760px;
-        margin-bottom: 34px;
-      }
-
-      .section-heading h2 {
-        margin-bottom: 14px;
-        font-size: clamp(2rem, 5vw, 4.4rem);
-        line-height: 0.98;
-        font-weight: 500;
-      }
-
-      .section-heading p {
-        color: var(--muted);
-        font-size: 1.08rem;
-      }
-
-      .minimal-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
-      }
-
-      .service {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        padding: 26px;
-        min-height: 230px;
-        background: rgba(255, 255, 255, 0.035);
-      }
-
-      .service-number {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 36px;
-        height: 36px;
-        margin-bottom: 24px;
-        border-radius: 8px;
-        border: 1px solid rgba(126, 180, 255, 0.3);
-        color: var(--blue-soft);
-        font-weight: 800;
-      }
-
-      .service h3 {
-        margin-bottom: 10px;
-        font-size: 1.2rem;
-      }
-
-      .service p {
-        margin-bottom: 0;
-        color: var(--muted);
-      }
-
-      .proof {
-        display: grid;
-        grid-template-columns: 0.88fr 1.12fr;
-        gap: 42px;
-        align-items: start;
-      }
-
-      .proof-line {
-        display: grid;
-        gap: 16px;
-      }
-
-      .proof-item {
-        display: grid;
-        grid-template-columns: 34px 1fr;
-        gap: 14px;
-        padding-bottom: 18px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .proof-icon {
-        width: 34px;
-        height: 34px;
-        border-radius: 8px;
-        display: grid;
-        place-items: center;
-        color: var(--blue-soft);
-        background: rgba(23, 104, 255, 0.12);
-        border: 1px solid rgba(126, 180, 255, 0.22);
-      }
-
-      .proof-item h3 {
-        margin-bottom: 4px;
-        font-size: 1.05rem;
-      }
-
-      .proof-item p {
-        margin-bottom: 0;
-        color: var(--muted);
-      }
-
-      .contact-section {
-        border-top: 1px solid var(--line);
-        background:
-          radial-gradient(circle at 72% 22%, rgba(23, 104, 255, 0.18), transparent 30rem),
-          rgba(255, 255, 255, 0.02);
-      }
-
-      .contact-panel {
-        border: 1px solid rgba(126, 180, 255, 0.24);
-        border-radius: 8px;
-        padding: clamp(28px, 6vw, 58px);
-        background: rgba(0, 6, 22, 0.62);
-        box-shadow: var(--shadow);
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 34px;
-        align-items: center;
-      }
-
-      .contact-panel h2 {
-        margin-bottom: 14px;
-        max-width: 820px;
-        font-size: clamp(2.1rem, 5vw, 4.8rem);
-        line-height: 0.96;
-        font-weight: 500;
-      }
-
-      .contact-panel p {
-        max-width: 660px;
-        color: var(--muted);
-        margin-bottom: 0;
-      }
-
-      .contact-options {
-        display: grid;
-        grid-template-columns: repeat(3, 64px);
-        gap: 12px;
-        justify-content: end;
-      }
-
-      .contact-options .icon-button {
-        width: 64px;
-        height: 64px;
-        background: var(--ice);
-        color: var(--space);
         border-color: transparent;
       }
 
-      .contact-options .icon-button:hover,
-      .contact-options .icon-button:focus-visible {
-        background: #dcecff;
+      .button svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .section-wrap {
+        border-top: 1px solid var(--line);
+      }
+
+      .section {
+        padding: 78px 0;
+      }
+
+      .section-head {
+        width: min(720px, 100%);
+        margin-bottom: 28px;
+      }
+
+      .section-head h2 {
+        margin-bottom: 12px;
+        font-size: clamp(1.85rem, 4vw, 3.55rem);
+        line-height: 1;
+        font-weight: 520;
+      }
+
+      .section-head p {
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .card {
+        min-height: 190px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+      }
+
+      .card span {
+        display: inline-flex;
+        margin-bottom: 20px;
+        color: var(--blue-soft);
+        font-weight: 900;
+      }
+
+      .card h3 {
+        margin-bottom: 8px;
+        font-size: 1.14rem;
+      }
+
+      .card p {
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      .process {
+        display: grid;
+        gap: 0;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+      }
+
+      .step {
+        display: grid;
+        grid-template-columns: 88px 1fr;
+        gap: 20px;
+        padding: 24px;
+      }
+
+      .step + .step {
+        border-top: 1px solid var(--line);
+      }
+
+      .step-number {
+        color: var(--blue-soft);
+        font-weight: 900;
+      }
+
+      .step h3 {
+        margin-bottom: 6px;
+        font-size: 1.1rem;
+      }
+
+      .step p {
+        margin-bottom: 0;
+        color: var(--muted);
       }
 
       .footer {
-        padding: 30px 0 46px;
+        padding: 30px 0 44px;
         display: flex;
+        align-items: center;
         justify-content: space-between;
-        gap: 20px;
+        gap: 18px;
         color: var(--muted);
-        font-size: 0.92rem;
+        font-size: 0.94rem;
+        border-top: 1px solid var(--line);
       }
 
       .footer a {
         color: var(--ice);
       }
 
-      @media (max-width: 900px) {
-        .nav-links {
-          display: none;
+      @media (max-width: 860px) {
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 16px 0;
         }
 
-        .hero,
-        .proof,
-        .contact-panel {
-          grid-template-columns: 1fr;
+        .nav-menu {
+          width: 100%;
+          justify-content: space-between;
+          gap: 12px;
+        }
+
+        .nav-links {
+          gap: 14px;
         }
 
         .hero {
           min-height: auto;
-          padding-top: 42px;
         }
 
-        .minimal-grid,
-        .trust-strip {
+        .service-grid {
           grid-template-columns: 1fr;
         }
 
-        .contact-options {
-          justify-content: start;
+        .step {
+          grid-template-columns: 1fr;
+          gap: 8px;
         }
       }
 
       @media (max-width: 560px) {
-        .nav-inner,
+        .nav,
         .hero,
-        .section-inner,
+        .section,
         .footer {
-          width: min(100% - 24px, 1120px);
+          width: min(100% - 24px, 1080px);
         }
 
-        .brand {
-          letter-spacing: 0.14rem;
+        .nav-menu {
+          align-items: flex-start;
+          flex-direction: column;
         }
 
-        .nav-actions .icon-button:nth-child(2) {
-          display: none;
+        .nav-links {
+          width: 100%;
+          justify-content: space-between;
+          font-size: 0.9rem;
         }
 
-        h1 {
-          font-size: clamp(3.4rem, 18vw, 5.4rem);
-          letter-spacing: 0.18rem;
+        .language-switcher {
+          width: 100%;
+          justify-content: space-between;
         }
 
-        .hero-actions {
+        .language-switcher button {
+          flex: 1;
+        }
+
+        .hero {
+          padding: 44px 0 58px;
+        }
+
+        .contact-row {
           flex-direction: column;
         }
 
@@ -521,23 +439,12 @@
           width: 100%;
         }
 
-        .section-inner {
-          padding: 62px 0;
-        }
-
-        .service {
-          min-height: auto;
-        }
-
-        .contact-options {
-          grid-template-columns: repeat(3, 1fr);
-        }
-
-        .contact-options .icon-button {
-          width: 100%;
+        .section {
+          padding: 58px 0;
         }
 
         .footer {
+          align-items: flex-start;
           flex-direction: column;
         }
       }
@@ -545,86 +452,43 @@
   </head>
   <body>
     <div class="page">
-      <header class="nav" aria-label="Navegacion principal">
-        <div class="nav-inner">
-          <a class="brand" href="#inicio" aria-label="Neptunn inicio">
-            <span class="brand-orbit" aria-hidden="true">
-              <span class="brand-planet"></span>
-            </span>
+      <header class="nav-shell">
+        <div class="nav">
+          <a class="brand" href="#inicio" aria-label="Neptunn">
+            <span class="brand-mark" aria-hidden="true"></span>
             <span>Neptunn</span>
           </a>
-          <nav class="nav-links" aria-label="Secciones">
-            <a href="#servicios">Servicios</a>
-            <a href="#confianza">Confianza</a>
-            <a href="#contacto">Contacto</a>
-          </nav>
-          <div class="nav-actions" aria-label="Contactos directos">
-            <a
-              class="icon-button"
-              href="mailto:neptunncompany@gmail.com"
-              aria-label="Enviar email a Neptunn"
-              title="Email"
-            >
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 6.5h16v11H4z" stroke="currentColor" stroke-width="1.8" />
-                <path
-                  d="m4.8 7.2 7.2 6 7.2-6"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-            <a
-              class="icon-button"
-              href="tel:+34631757391"
-              aria-label="Llamar a Neptunn"
-              title="Llamar"
-            >
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  d="M8.4 5.2 6.7 6.9c-.8.8-.8 2 0 3.4 1.8 3.3 3.7 5.2 7 7 .9.5 2 .4 2.7-.3l1.9-1.9-3-3-1.5 1.5c-1.7-.9-2.7-1.9-3.6-3.6l1.5-1.5z"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-            <a
-              class="icon-button"
-              href="https://wa.me/34631757391"
-              aria-label="Abrir WhatsApp con Neptunn"
-              title="WhatsApp"
-            >
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  d="M7.5 19.2 4 20l.9-3.3A8 8 0 1 1 7.5 19.2Z"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M9.4 8.8c.2-.3.4-.4.7-.3l1 .3c.3.1.4.4.3.7l-.3.8c-.1.2 0 .4.2.6.5.7 1.1 1.2 1.9 1.6.2.1.4.1.6 0l.7-.4c.3-.2.6-.1.8.2l.5.9c.2.3.1.6-.1.8-.6.6-1.3.8-2.1.5-2.2-.7-3.8-2.1-4.8-4.2-.3-.6-.1-1.1.6-1.5Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </a>
+
+          <div class="nav-menu">
+            <nav class="nav-links" aria-label="Menu">
+              <a href="#servicios" data-i18n="navServices">Servicios</a>
+              <a href="#proceso" data-i18n="navProcess">Proceso</a>
+              <a href="#contacto" data-i18n="navContact">Contacto</a>
+            </nav>
+            <div class="language-switcher" aria-label="Idioma">
+              <button type="button" data-lang="es" aria-pressed="true">Castellano</button>
+              <button type="button" data-lang="ca" aria-pressed="false">Catala</button>
+              <button type="button" data-lang="en" aria-pressed="false">English</button>
+            </div>
           </div>
         </div>
       </header>
 
       <main id="inicio">
-        <section class="hero" aria-label="Presentacion de Neptunn">
-          <div class="hero-copy">
-            <span class="eyebrow">Agencia web con IA en Barcelona</span>
-            <h1>Neptunn</h1>
-            <p>
-              Creamos webs minimalistas, rapidas y creibles para empresas
-              locales que quieren parecer tan profesionales online como lo son
-              en persona.
+        <section class="hero" aria-label="Neptunn">
+          <div class="hero-inner">
+            <h1 class="sr-only">Neptunn</h1>
+            <img
+              class="hero-logo"
+              src="assets/neptunn-logo.jpg"
+              alt="Logo de Neptunn"
+            />
+            <span class="eyebrow" data-i18n="heroEyebrow">Barcelona</span>
+            <h2 data-i18n="heroTitle">Webs con IA para empresas locales.</h2>
+            <p data-i18n="heroText">
+              Tres socios. Un objetivo: una web clara, fiable y pensada para que te contacten.
             </p>
-            <div class="hero-actions">
+            <div class="contact-row" id="contacto" aria-label="Contacto">
               <a class="button button-primary" href="https://wa.me/34631757391">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
@@ -634,218 +498,112 @@
                     stroke-linejoin="round"
                   />
                 </svg>
-                Hablar por WhatsApp
+                <span data-i18n="whatsapp">WhatsApp</span>
               </a>
-              <a class="button button-secondary" href="mailto:neptunncompany@gmail.com">
-                Enviar email
+              <a class="button" href="mailto:neptunncompany@gmail.com">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 6.5h16v11H4z" stroke="currentColor" stroke-width="1.8" />
+                  <path
+                    d="m4.8 7.2 7.2 6 7.2-6"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span data-i18n="email">Email</span>
               </a>
-            </div>
-          </div>
-
-          <div>
-            <div class="logo-frame">
-              <img
-                src="assets/neptunn-logo.jpg"
-                alt="Logo de Neptunn con planeta azul sobre fondo oscuro"
-              />
-            </div>
-            <div class="trust-strip" aria-label="Puntos clave">
-              <div class="trust-item">
-                <strong>3 socios</strong>
-                Equipo pequeno, trato directo.
-              </div>
-              <div class="trust-item">
-                <strong>IA util</strong>
-                Menos ruido, mas velocidad.
-              </div>
-              <div class="trust-item">
-                <strong>Contacto claro</strong>
-                WhatsApp, llamada y email.
-              </div>
+              <a class="button" href="tel:+34631757391">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M8.4 5.2 6.7 6.9c-.8.8-.8 2 0 3.4 1.8 3.3 3.7 5.2 7 7 .9.5 2 .4 2.7-.3l1.9-1.9-3-3-1.5 1.5c-1.7-.9-2.7-1.9-3.6-3.6l1.5-1.5z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span data-i18n="call">Llamar</span>
+              </a>
             </div>
           </div>
         </section>
 
-        <section id="servicios">
-          <div class="section-inner">
-            <div class="section-heading">
-              <span class="eyebrow">Que hacemos</span>
-              <h2>Una web que ordena tu negocio y facilita que te contacten.</h2>
-              <p>
-                Sin paginas eternas ni promesas raras. Disenamos una presencia
-                digital limpia, fiable y preparada para que un cliente local
-                entienda quien eres, que ofreces y como hablar contigo.
+        <section class="section-wrap" id="servicios">
+          <div class="section">
+            <div class="section-head">
+              <span class="eyebrow" data-i18n="servicesEyebrow">Que hacemos</span>
+              <h2 data-i18n="servicesTitle">Una presencia online simple y seria.</h2>
+              <p data-i18n="servicesText">
+                Diseño, texto y estructura para explicar tu negocio sin ruido.
               </p>
             </div>
-            <div class="minimal-grid">
-              <article class="service">
-                <span class="service-number">01</span>
-                <h3>Web profesional</h3>
-                <p>
-                  Estructura clara, estetica cuidada y version movil desde el
-                  primer dia.
+            <div class="service-grid">
+              <article class="card">
+                <span>01</span>
+                <h3 data-i18n="serviceOneTitle">Web clara</h3>
+                <p data-i18n="serviceOneText">
+                  Una pagina rapida, ordenada y adaptada a movil.
                 </p>
               </article>
-              <article class="service">
-                <span class="service-number">02</span>
-                <h3>Mensaje convincente</h3>
-                <p>
-                  Textos directos para explicar tu servicio sin sonar generico
-                  ni improvisado.
+              <article class="card">
+                <span>02</span>
+                <h3 data-i18n="serviceTwoTitle">IA util</h3>
+                <p data-i18n="serviceTwoText">
+                  Contenido y automatizaciones solo donde aportan valor.
                 </p>
               </article>
-              <article class="service">
-                <span class="service-number">03</span>
-                <h3>IA aplicada</h3>
-                <p>
-                  Automatizaciones, contenido y mejoras practicas solo donde
-                  aportan valor real.
+              <article class="card">
+                <span>03</span>
+                <h3 data-i18n="serviceThreeTitle">Contacto directo</h3>
+                <p data-i18n="serviceThreeText">
+                  WhatsApp, email y llamada siempre visibles.
                 </p>
               </article>
             </div>
           </div>
         </section>
 
-        <section id="confianza">
-          <div class="section-inner proof">
-            <div class="section-heading">
-              <span class="eyebrow">Por que confiar</span>
-              <h2>Proceso corto, decisiones claras y una entrega cuidada.</h2>
+        <section class="section-wrap" id="proceso">
+          <div class="section">
+            <div class="section-head">
+              <span class="eyebrow" data-i18n="processEyebrow">Proceso</span>
+              <h2 data-i18n="processTitle">Tres pasos. Sin complicarlo.</h2>
             </div>
-            <div class="proof-line">
-              <article class="proof-item">
-                <span class="proof-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="m5 12 4 4L19 6"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </span>
+            <div class="process">
+              <article class="step">
+                <div class="step-number">01</div>
                 <div>
-                  <h3>Antes de disenar, entendemos el negocio.</h3>
-                  <p>
-                    Revisamos que vendes, a quien vendes y que necesita ver un
-                    cliente antes de escribirte.
+                  <h3 data-i18n="stepOneTitle">Entender</h3>
+                  <p data-i18n="stepOneText">
+                    Vemos que ofreces, a quien vendes y que debe quedar claro.
                   </p>
                 </div>
               </article>
-              <article class="proof-item">
-                <span class="proof-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M5 7h14M5 12h10M5 17h7"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                </span>
+              <article class="step">
+                <div class="step-number">02</div>
                 <div>
-                  <h3>Todo queda simple de leer.</h3>
-                  <p>
-                    Una persona debe entender tu valor en segundos, incluso
-                    desde el movil.
+                  <h3 data-i18n="stepTwoTitle">Diseñar</h3>
+                  <p data-i18n="stepTwoText">
+                    Creamos una web minimalista con un mensaje directo.
                   </p>
                 </div>
               </article>
-              <article class="proof-item">
-                <span class="proof-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M4 12h16M12 4v16"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                </span>
+              <article class="step">
+                <div class="step-number">03</div>
                 <div>
-                  <h3>Contacto siempre a un toque.</h3>
-                  <p>
-                    Email, llamada y WhatsApp visibles para convertir interes en
-                    conversacion.
+                  <h3 data-i18n="stepThreeTitle">Publicar</h3>
+                  <p data-i18n="stepThreeText">
+                    Dejamos todo listo para que el cliente pueda contactarte.
                   </p>
                 </div>
               </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="contact-section" id="contacto">
-          <div class="section-inner">
-            <div class="contact-panel">
-              <div>
-                <span class="eyebrow">Empezamos</span>
-                <h2>Cuentanos que negocio tienes y que web necesitas.</h2>
-                <p>
-                  Te responderemos con una propuesta sencilla: enfoque, alcance
-                  y siguiente paso. Sin marearte.
-                </p>
-              </div>
-              <div class="contact-options" aria-label="Opciones de contacto">
-                <a
-                  class="icon-button"
-                  href="mailto:neptunncompany@gmail.com"
-                  aria-label="Enviar email a neptunncompany@gmail.com"
-                  title="neptunncompany@gmail.com"
-                >
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M4 6.5h16v11H4z" stroke="currentColor" stroke-width="1.8" />
-                    <path
-                      d="m4.8 7.2 7.2 6 7.2-6"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </a>
-                <a
-                  class="icon-button"
-                  href="tel:+34631757391"
-                  aria-label="Llamar al +34 631 757 391"
-                  title="+34 631 757 391"
-                >
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M8.4 5.2 6.7 6.9c-.8.8-.8 2 0 3.4 1.8 3.3 3.7 5.2 7 7 .9.5 2 .4 2.7-.3l1.9-1.9-3-3-1.5 1.5c-1.7-.9-2.7-1.9-3.6-3.6l1.5-1.5z"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </a>
-                <a
-                  class="icon-button"
-                  href="https://wa.me/34631757391"
-                  aria-label="Abrir WhatsApp con +34 631 757 391"
-                  title="WhatsApp"
-                >
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M7.5 19.2 4 20l.9-3.3A8 8 0 1 1 7.5 19.2Z"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M9.4 8.8c.2-.3.4-.4.7-.3l1 .3c.3.1.4.4.3.7l-.3.8c-.1.2 0 .4.2.6.5.7 1.1 1.2 1.9 1.6.2.1.4.1.6 0l.7-.4c.3-.2.6-.1.8.2l.5.9c.2.3.1.6-.1.8-.6.6-1.3.8-2.1.5-2.2-.7-3.8-2.1-4.8-4.2-.3-.6-.1-1.1.6-1.5Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
-              </div>
             </div>
           </div>
         </section>
       </main>
 
       <footer class="footer">
-        <span>Neptunn - Barcelona</span>
+        <span data-i18n="footerCity">Neptunn - Barcelona</span>
         <span>
           <a href="mailto:neptunncompany@gmail.com">neptunncompany@gmail.com</a>
           -
@@ -853,5 +611,154 @@
         </span>
       </footer>
     </div>
+
+    <script>
+      const translations = {
+        es: {
+          title: "Neptunn | Webs con IA para empresas locales",
+          description:
+            "Neptunn crea webs claras y fiables con IA para empresas locales en Barcelona.",
+          navServices: "Servicios",
+          navProcess: "Proceso",
+          navContact: "Contacto",
+          heroEyebrow: "Barcelona",
+          heroTitle: "Webs con IA para empresas locales.",
+          heroText:
+            "Tres socios. Un objetivo: una web clara, fiable y pensada para que te contacten.",
+          whatsapp: "WhatsApp",
+          email: "Email",
+          call: "Llamar",
+          servicesEyebrow: "Que hacemos",
+          servicesTitle: "Una presencia online simple y seria.",
+          servicesText:
+            "Diseño, texto y estructura para explicar tu negocio sin ruido.",
+          serviceOneTitle: "Web clara",
+          serviceOneText: "Una pagina rapida, ordenada y adaptada a movil.",
+          serviceTwoTitle: "IA util",
+          serviceTwoText:
+            "Contenido y automatizaciones solo donde aportan valor.",
+          serviceThreeTitle: "Contacto directo",
+          serviceThreeText: "WhatsApp, email y llamada siempre visibles.",
+          processEyebrow: "Proceso",
+          processTitle: "Tres pasos. Sin complicarlo.",
+          stepOneTitle: "Entender",
+          stepOneText:
+            "Vemos que ofreces, a quien vendes y que debe quedar claro.",
+          stepTwoTitle: "Diseñar",
+          stepTwoText: "Creamos una web minimalista con un mensaje directo.",
+          stepThreeTitle: "Publicar",
+          stepThreeText:
+            "Dejamos todo listo para que el cliente pueda contactarte.",
+          footerCity: "Neptunn - Barcelona"
+        },
+        ca: {
+          title: "Neptunn | Webs amb IA per a empreses locals",
+          description:
+            "Neptunn crea webs clares i fiables amb IA per a empreses locals a Barcelona.",
+          navServices: "Serveis",
+          navProcess: "Proces",
+          navContact: "Contacte",
+          heroEyebrow: "Barcelona",
+          heroTitle: "Webs amb IA per a empreses locals.",
+          heroText:
+            "Tres socis. Un objectiu: una web clara, fiable i pensada perque et contactin.",
+          whatsapp: "WhatsApp",
+          email: "Email",
+          call: "Trucar",
+          servicesEyebrow: "Que fem",
+          servicesTitle: "Una presencia online simple i seriosa.",
+          servicesText:
+            "Disseny, text i estructura per explicar el teu negoci sense soroll.",
+          serviceOneTitle: "Web clara",
+          serviceOneText: "Una pagina rapida, ordenada i adaptada a mobil.",
+          serviceTwoTitle: "IA util",
+          serviceTwoText:
+            "Contingut i automatitzacions nomes on aporten valor.",
+          serviceThreeTitle: "Contacte directe",
+          serviceThreeText: "WhatsApp, email i trucada sempre visibles.",
+          processEyebrow: "Proces",
+          processTitle: "Tres passos. Sense complicar-ho.",
+          stepOneTitle: "Entendre",
+          stepOneText:
+            "Veiem que ofereixes, a qui vens i que ha de quedar clar.",
+          stepTwoTitle: "Dissenyar",
+          stepTwoText: "Creem una web minimalista amb un missatge directe.",
+          stepThreeTitle: "Publicar",
+          stepThreeText:
+            "Ho deixem tot preparat perque el client et pugui contactar.",
+          footerCity: "Neptunn - Barcelona"
+        },
+        en: {
+          title: "Neptunn | AI websites for local businesses",
+          description:
+            "Neptunn creates clear, reliable AI-powered websites for local businesses in Barcelona.",
+          navServices: "Services",
+          navProcess: "Process",
+          navContact: "Contact",
+          heroEyebrow: "Barcelona",
+          heroTitle: "AI websites for local businesses.",
+          heroText:
+            "Three partners. One goal: a clear, reliable website built to get you contacted.",
+          whatsapp: "WhatsApp",
+          email: "Email",
+          call: "Call",
+          servicesEyebrow: "What we do",
+          servicesTitle: "A simple, serious online presence.",
+          servicesText:
+            "Design, copy and structure to explain your business without noise.",
+          serviceOneTitle: "Clear website",
+          serviceOneText: "A fast, ordered page that works well on mobile.",
+          serviceTwoTitle: "Useful AI",
+          serviceTwoText: "Content and automation only where they add value.",
+          serviceThreeTitle: "Direct contact",
+          serviceThreeText: "WhatsApp, email and phone always visible.",
+          processEyebrow: "Process",
+          processTitle: "Three steps. No overcomplication.",
+          stepOneTitle: "Understand",
+          stepOneText:
+            "We clarify what you offer, who you sell to and what must be obvious.",
+          stepTwoTitle: "Design",
+          stepTwoText: "We create a minimal website with a direct message.",
+          stepThreeTitle: "Publish",
+          stepThreeText:
+            "We leave everything ready so customers can contact you.",
+          footerCity: "Neptunn - Barcelona"
+        }
+      };
+
+      const metaDescription = document.querySelector('meta[name="description"]');
+      const languageButtons = document.querySelectorAll("[data-lang]");
+
+      function setLanguage(language) {
+        const copy = translations[language] || translations.es;
+        document.documentElement.lang = language;
+        document.title = copy.title;
+        if (metaDescription) {
+          metaDescription.setAttribute("content", copy.description);
+        }
+
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+          const key = node.getAttribute("data-i18n");
+          if (copy[key]) {
+            node.textContent = copy[key];
+          }
+        });
+
+        languageButtons.forEach((button) => {
+          const isActive = button.getAttribute("data-lang") === language;
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+
+        localStorage.setItem("neptunn-language", language);
+      }
+
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          setLanguage(button.getAttribute("data-lang"));
+        });
+      });
+
+      setLanguage(localStorage.getItem("neptunn-language") || "es");
+    </script>
   </body>
 </html>
