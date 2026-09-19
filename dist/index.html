@@ -87,7 +87,7 @@
         gap: 10px;
         font-size: 0.9rem;
         font-weight: 700;
-        letter-spacing: 0.22rem;
+        letter-spacing: 0;
         text-transform: uppercase;
       }
 
@@ -114,10 +114,28 @@
         gap: 22px;
       }
 
+      .menu-toggle {
+        width: 44px;
+        height: 44px;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--ice);
+        background: rgba(255, 255, 255, 0.04);
+        cursor: pointer;
+      }
+
+      .menu-toggle svg {
+        width: 22px;
+        height: 22px;
+      }
+
       .nav-links {
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 16px;
         color: var(--muted);
         font-size: 0.94rem;
       }
@@ -168,12 +186,17 @@
         width: min(780px, 100%);
       }
 
-      .hero-logo {
+      .hero-orbit {
         width: min(590px, 100%);
-        margin: 0 auto 30px;
-        border-radius: 8px;
-        border: 1px solid rgba(158, 200, 255, 0.18);
-        box-shadow: var(--shadow);
+        margin: 0 auto 34px;
+        display: grid;
+        place-items: center;
+        filter: drop-shadow(0 30px 70px rgba(0, 0, 0, 0.48));
+      }
+
+      .hero-orbit svg {
+        width: 100%;
+        height: auto;
       }
 
       h1,
@@ -201,13 +224,13 @@
         color: var(--blue-soft);
         font-size: 0.82rem;
         font-weight: 800;
-        letter-spacing: 0.17rem;
+        letter-spacing: 0;
         text-transform: uppercase;
       }
 
       .hero h2 {
         margin-bottom: 14px;
-        font-size: clamp(2rem, 5vw, 4.35rem);
+        font-size: 3.8rem;
         line-height: 0.96;
         font-weight: 500;
       }
@@ -216,7 +239,7 @@
         width: min(650px, 100%);
         margin: 0 auto;
         color: var(--muted);
-        font-size: clamp(1.04rem, 1.7vw, 1.22rem);
+        font-size: 1.16rem;
       }
 
       .contact-row {
@@ -278,7 +301,7 @@
 
       .section-head h2 {
         margin-bottom: 12px;
-        font-size: clamp(1.85rem, 4vw, 3.55rem);
+        font-size: 3rem;
         line-height: 1;
         font-weight: 520;
       }
@@ -289,6 +312,40 @@
       }
 
       .service-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .split-grid {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 32px;
+        align-items: start;
+      }
+
+      .detail-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .detail-item {
+        padding: 18px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .detail-item h3 {
+        margin-bottom: 6px;
+        font-size: 1.06rem;
+      }
+
+      .detail-item p {
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      .audience-grid,
+      .team-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 14px;
@@ -353,6 +410,28 @@
         color: var(--muted);
       }
 
+      .cta-strip {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 30px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel-strong);
+      }
+
+      .cta-strip h2 {
+        margin-bottom: 8px;
+        font-size: 2rem;
+        line-height: 1.05;
+      }
+
+      .cta-strip p {
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
       .footer {
         padding: 30px 0 44px;
         display: flex;
@@ -370,18 +449,29 @@
 
       @media (max-width: 860px) {
         .nav {
-          align-items: flex-start;
-          flex-direction: column;
+          align-items: center;
+          flex-wrap: wrap;
           padding: 16px 0;
         }
 
+        .menu-toggle {
+          display: inline-flex;
+        }
+
         .nav-menu {
+          display: none;
           width: 100%;
-          justify-content: space-between;
+          align-items: stretch;
+          flex-direction: column;
           gap: 12px;
         }
 
+        .nav-menu.is-open {
+          display: flex;
+        }
+
         .nav-links {
+          flex-wrap: wrap;
           gap: 14px;
         }
 
@@ -389,7 +479,18 @@
           min-height: auto;
         }
 
-        .service-grid {
+        .hero h2 {
+          font-size: 2.8rem;
+        }
+
+        .section-head h2 {
+          font-size: 2.35rem;
+        }
+
+        .service-grid,
+        .audience-grid,
+        .team-grid,
+        .split-grid {
           grid-template-columns: 1fr;
         }
 
@@ -414,8 +515,16 @@
 
         .nav-links {
           width: 100%;
-          justify-content: space-between;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
           font-size: 0.9rem;
+        }
+
+        .nav-links a {
+          padding: 10px 12px;
+          border: 1px solid var(--line);
+          border-radius: 8px;
+          background: rgba(255, 255, 255, 0.035);
         }
 
         .language-switcher {
@@ -431,6 +540,10 @@
           padding: 44px 0 58px;
         }
 
+        .hero h2 {
+          font-size: 2.25rem;
+        }
+
         .contact-row {
           flex-direction: column;
         }
@@ -441,6 +554,16 @@
 
         .section {
           padding: 58px 0;
+        }
+
+        .section-head h2 {
+          font-size: 2rem;
+        }
+
+        .cta-strip {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 24px;
         }
 
         .footer {
@@ -459,10 +582,20 @@
             <span>Neptunn</span>
           </a>
 
-          <div class="nav-menu">
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+            <span class="sr-only">Menu</span>
+          </button>
+
+          <div class="nav-menu" id="menu">
             <nav class="nav-links" aria-label="Menu">
+              <a href="#inicio" data-i18n="navHome">Inicio</a>
               <a href="#servicios" data-i18n="navServices">Servicios</a>
+              <a href="#incluye" data-i18n="navIncludes">Incluye</a>
               <a href="#proceso" data-i18n="navProcess">Proceso</a>
+              <a href="#equipo" data-i18n="navTeam">Equipo</a>
               <a href="#contacto" data-i18n="navContact">Contacto</a>
             </nav>
             <div class="language-switcher" aria-label="Idioma">
@@ -478,11 +611,44 @@
         <section class="hero" aria-label="Neptunn">
           <div class="hero-inner">
             <h1 class="sr-only">Neptunn</h1>
-            <img
-              class="hero-logo"
-              src="assets/neptunn-logo.jpg"
-              alt="Logo de Neptunn"
-            />
+            <div class="hero-orbit" aria-hidden="true">
+              <svg viewBox="0 0 720 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="planet" cx="34%" cy="32%" r="72%">
+                    <stop offset="0%" stop-color="#9ec8ff" />
+                    <stop offset="34%" stop-color="#2d7dff" />
+                    <stop offset="70%" stop-color="#071632" />
+                    <stop offset="100%" stop-color="#000512" />
+                  </radialGradient>
+                  <linearGradient id="ring" x1="124" y1="100" x2="596" y2="420">
+                    <stop stop-color="#dcecff" />
+                    <stop offset="0.5" stop-color="#2d7dff" />
+                    <stop offset="1" stop-color="#9ec8ff" />
+                  </linearGradient>
+                  <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur stdDeviation="18" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                <path d="M180 205a210 210 0 0 1 360 0" stroke="url(#ring)" stroke-width="10" stroke-linecap="round" opacity="0.92" />
+                <path d="M180 356a210 210 0 0 0 360 0" stroke="url(#ring)" stroke-width="10" stroke-linecap="round" opacity="0.86" />
+                <circle cx="360" cy="268" r="150" fill="url(#planet)" filter="url(#glow)" />
+                <path d="M235 270c68-30 156-28 250 6" stroke="#9ec8ff" stroke-width="8" stroke-linecap="round" opacity="0.32" />
+                <path d="M250 318c54 22 141 22 220-2" stroke="#2d7dff" stroke-width="8" stroke-linecap="round" opacity="0.34" />
+                <g fill="#f4f8ff" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="300">
+                  <text x="118" y="305">N</text>
+                  <text x="206" y="305">E</text>
+                  <text x="287" y="305">P</text>
+                  <text x="366" y="305">T</text>
+                  <text x="448" y="305">U</text>
+                  <text x="536" y="305">N</text>
+                  <text x="624" y="305">N</text>
+                </g>
+              </svg>
+            </div>
             <span class="eyebrow" data-i18n="heroEyebrow">Barcelona</span>
             <h2 data-i18n="heroTitle">Webs con IA para empresas locales.</h2>
             <p data-i18n="heroText">
@@ -534,7 +700,7 @@
               <span class="eyebrow" data-i18n="servicesEyebrow">Que hacemos</span>
               <h2 data-i18n="servicesTitle">Una presencia online simple y seria.</h2>
               <p data-i18n="servicesText">
-                Diseño, texto y estructura para explicar tu negocio sin ruido.
+                Diseno, texto y estructura para explicar tu negocio sin ruido.
               </p>
             </div>
             <div class="service-grid">
@@ -563,6 +729,72 @@
           </div>
         </section>
 
+        <section class="section-wrap" id="incluye">
+          <div class="section">
+            <div class="split-grid">
+              <div class="section-head">
+                <span class="eyebrow" data-i18n="includesEyebrow">Incluye</span>
+                <h2 data-i18n="includesTitle">Todo lo necesario para salir online con criterio.</h2>
+                <p data-i18n="includesText">
+                  Nos centramos en que tu web se entienda rapido, transmita confianza y facilite el primer contacto.
+                </p>
+              </div>
+              <div class="detail-list">
+                <article class="detail-item">
+                  <h3 data-i18n="includeOneTitle">Estructura y mensaje</h3>
+                  <p data-i18n="includeOneText">
+                    Organizamos lo esencial: que haces, donde estas, por que confiar y como contactarte.
+                  </p>
+                </article>
+                <article class="detail-item">
+                  <h3 data-i18n="includeTwoTitle">Diseno responsive</h3>
+                  <p data-i18n="includeTwoText">
+                    La web se adapta a movil, tablet y ordenador con una estetica limpia y profesional.
+                  </p>
+                </article>
+                <article class="detail-item">
+                  <h3 data-i18n="includeThreeTitle">IA aplicada con sentido</h3>
+                  <p data-i18n="includeThreeText">
+                    Usamos IA para acelerar textos, ideas y procesos, pero revisamos el resultado para que suene humano.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-wrap" id="clientes">
+          <div class="section">
+            <div class="section-head">
+              <span class="eyebrow" data-i18n="audienceEyebrow">Para quien</span>
+              <h2 data-i18n="audienceTitle">Pensado para negocios locales que necesitan claridad.</h2>
+            </div>
+            <div class="audience-grid">
+              <article class="card">
+                <span>Local</span>
+                <h3 data-i18n="audienceOneTitle">Restaurantes y comercios</h3>
+                <p data-i18n="audienceOneText">
+                  Presentacion, horarios, ubicacion y contacto directo en pocos segundos.
+                </p>
+              </article>
+              <article class="card">
+                <span>Servicios</span>
+                <h3 data-i18n="audienceTwoTitle">Profesionales independientes</h3>
+                <p data-i18n="audienceTwoText">
+                  Una imagen seria para captar confianza antes de la primera llamada.
+                </p>
+              </article>
+              <article class="card">
+                <span>Empresa</span>
+                <h3 data-i18n="audienceThreeTitle">Pymes de Barcelona</h3>
+                <p data-i18n="audienceThreeText">
+                  Webs sencillas para explicar bien la oferta y recibir solicitudes reales.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
         <section class="section-wrap" id="proceso">
           <div class="section">
             <div class="section-head">
@@ -582,7 +814,7 @@
               <article class="step">
                 <div class="step-number">02</div>
                 <div>
-                  <h3 data-i18n="stepTwoTitle">Diseñar</h3>
+                  <h3 data-i18n="stepTwoTitle">Disenar</h3>
                   <p data-i18n="stepTwoText">
                     Creamos una web minimalista con un mensaje directo.
                   </p>
@@ -597,6 +829,58 @@
                   </p>
                 </div>
               </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-wrap" id="equipo">
+          <div class="section">
+            <div class="section-head">
+              <span class="eyebrow" data-i18n="teamEyebrow">Equipo</span>
+              <h2 data-i18n="teamTitle">Tres socios, una forma de trabajar cercana.</h2>
+              <p data-i18n="teamText">
+                Combinamos estrategia, diseno y tecnologia para que la web no sea solo bonita: tiene que ayudar al negocio.
+              </p>
+            </div>
+            <div class="team-grid">
+              <article class="card">
+                <span>01</span>
+                <h3 data-i18n="teamOneTitle">Estrategia</h3>
+                <p data-i18n="teamOneText">
+                  Definimos el mensaje principal y el recorrido que debe seguir el cliente.
+                </p>
+              </article>
+              <article class="card">
+                <span>02</span>
+                <h3 data-i18n="teamTwoTitle">Diseno</h3>
+                <p data-i18n="teamTwoText">
+                  Cuidamos la estetica, la jerarquia visual y la sensacion de fiabilidad.
+                </p>
+              </article>
+              <article class="card">
+                <span>03</span>
+                <h3 data-i18n="teamThreeTitle">IA y publicacion</h3>
+                <p data-i18n="teamThreeText">
+                  Integramos herramientas utiles y dejamos la pagina lista para compartir.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-wrap">
+          <div class="section">
+            <div class="cta-strip">
+              <div>
+                <span class="eyebrow" data-i18n="ctaEyebrow">Hablemos</span>
+                <h2 data-i18n="ctaTitle">Cuentanos que negocio quieres mejorar.</h2>
+                <p data-i18n="ctaText">
+                  Te responderemos con una propuesta clara y sin rodeos.
+                </p>
+              </div>
+              <a class="button button-primary" href="https://wa.me/34631757391">
+                <span data-i18n="ctaButton">Contactar por WhatsApp</span>
+              </a>
             </div>
           </div>
         </section>
@@ -618,8 +902,11 @@
           title: "Neptunn | Webs con IA para empresas locales",
           description:
             "Neptunn crea webs claras y fiables con IA para empresas locales en Barcelona.",
+          navHome: "Inicio",
           navServices: "Servicios",
+          navIncludes: "Incluye",
           navProcess: "Proceso",
+          navTeam: "Equipo",
           navContact: "Contacto",
           heroEyebrow: "Barcelona",
           heroTitle: "Webs con IA para empresas locales.",
@@ -631,7 +918,7 @@
           servicesEyebrow: "Que hacemos",
           servicesTitle: "Una presencia online simple y seria.",
           servicesText:
-            "Diseño, texto y estructura para explicar tu negocio sin ruido.",
+            "Diseno, texto y estructura para explicar tu negocio sin ruido.",
           serviceOneTitle: "Web clara",
           serviceOneText: "Una pagina rapida, ordenada y adaptada a movil.",
           serviceTwoTitle: "IA util",
@@ -639,24 +926,68 @@
             "Contenido y automatizaciones solo donde aportan valor.",
           serviceThreeTitle: "Contacto directo",
           serviceThreeText: "WhatsApp, email y llamada siempre visibles.",
+          includesEyebrow: "Incluye",
+          includesTitle: "Todo lo necesario para salir online con criterio.",
+          includesText:
+            "Nos centramos en que tu web se entienda rapido, transmita confianza y facilite el primer contacto.",
+          includeOneTitle: "Estructura y mensaje",
+          includeOneText:
+            "Organizamos lo esencial: que haces, donde estas, por que confiar y como contactarte.",
+          includeTwoTitle: "Diseno responsive",
+          includeTwoText:
+            "La web se adapta a movil, tablet y ordenador con una estetica limpia y profesional.",
+          includeThreeTitle: "IA aplicada con sentido",
+          includeThreeText:
+            "Usamos IA para acelerar textos, ideas y procesos, pero revisamos el resultado para que suene humano.",
+          audienceEyebrow: "Para quien",
+          audienceTitle: "Pensado para negocios locales que necesitan claridad.",
+          audienceOneTitle: "Restaurantes y comercios",
+          audienceOneText:
+            "Presentacion, horarios, ubicacion y contacto directo en pocos segundos.",
+          audienceTwoTitle: "Profesionales independientes",
+          audienceTwoText:
+            "Una imagen seria para captar confianza antes de la primera llamada.",
+          audienceThreeTitle: "Pymes de Barcelona",
+          audienceThreeText:
+            "Webs sencillas para explicar bien la oferta y recibir solicitudes reales.",
           processEyebrow: "Proceso",
           processTitle: "Tres pasos. Sin complicarlo.",
           stepOneTitle: "Entender",
           stepOneText:
             "Vemos que ofreces, a quien vendes y que debe quedar claro.",
-          stepTwoTitle: "Diseñar",
+          stepTwoTitle: "Disenar",
           stepTwoText: "Creamos una web minimalista con un mensaje directo.",
           stepThreeTitle: "Publicar",
           stepThreeText:
             "Dejamos todo listo para que el cliente pueda contactarte.",
+          teamEyebrow: "Equipo",
+          teamTitle: "Tres socios, una forma de trabajar cercana.",
+          teamText:
+            "Combinamos estrategia, diseno y tecnologia para que la web no sea solo bonita: tiene que ayudar al negocio.",
+          teamOneTitle: "Estrategia",
+          teamOneText:
+            "Definimos el mensaje principal y el recorrido que debe seguir el cliente.",
+          teamTwoTitle: "Diseno",
+          teamTwoText:
+            "Cuidamos la estetica, la jerarquia visual y la sensacion de fiabilidad.",
+          teamThreeTitle: "IA y publicacion",
+          teamThreeText:
+            "Integramos herramientas utiles y dejamos la pagina lista para compartir.",
+          ctaEyebrow: "Hablemos",
+          ctaTitle: "Cuentanos que negocio quieres mejorar.",
+          ctaText: "Te responderemos con una propuesta clara y sin rodeos.",
+          ctaButton: "Contactar por WhatsApp",
           footerCity: "Neptunn - Barcelona"
         },
         ca: {
           title: "Neptunn | Webs amb IA per a empreses locals",
           description:
             "Neptunn crea webs clares i fiables amb IA per a empreses locals a Barcelona.",
+          navHome: "Inici",
           navServices: "Serveis",
+          navIncludes: "Inclou",
           navProcess: "Proces",
+          navTeam: "Equip",
           navContact: "Contacte",
           heroEyebrow: "Barcelona",
           heroTitle: "Webs amb IA per a empreses locals.",
@@ -676,6 +1007,30 @@
             "Contingut i automatitzacions nomes on aporten valor.",
           serviceThreeTitle: "Contacte directe",
           serviceThreeText: "WhatsApp, email i trucada sempre visibles.",
+          includesEyebrow: "Inclou",
+          includesTitle: "Tot el necessari per sortir online amb criteri.",
+          includesText:
+            "Ens centrem que la teva web s'entengui rapid, transmeti confianca i faciliti el primer contacte.",
+          includeOneTitle: "Estructura i missatge",
+          includeOneText:
+            "Ordenem l'essencial: que fas, on ets, per que confiar i com contactar-te.",
+          includeTwoTitle: "Disseny responsive",
+          includeTwoText:
+            "La web s'adapta a mobil, tablet i ordinador amb una estetica neta i professional.",
+          includeThreeTitle: "IA aplicada amb sentit",
+          includeThreeText:
+            "Fem servir IA per accelerar textos, idees i processos, pero revisem el resultat perque soni huma.",
+          audienceEyebrow: "Per a qui",
+          audienceTitle: "Pensat per a negocis locals que necessiten claredat.",
+          audienceOneTitle: "Restaurants i comercos",
+          audienceOneText:
+            "Presentacio, horaris, ubicacio i contacte directe en pocs segons.",
+          audienceTwoTitle: "Professionals independents",
+          audienceTwoText:
+            "Una imatge seriosa per generar confianca abans de la primera trucada.",
+          audienceThreeTitle: "Pimes de Barcelona",
+          audienceThreeText:
+            "Webs senzilles per explicar be l'oferta i rebre sol-licituds reals.",
           processEyebrow: "Proces",
           processTitle: "Tres passos. Sense complicar-ho.",
           stepOneTitle: "Entendre",
@@ -686,14 +1041,34 @@
           stepThreeTitle: "Publicar",
           stepThreeText:
             "Ho deixem tot preparat perque el client et pugui contactar.",
+          teamEyebrow: "Equip",
+          teamTitle: "Tres socis, una manera propera de treballar.",
+          teamText:
+            "Combinem estrategia, disseny i tecnologia perque la web no sigui nomes bonica: ha d'ajudar el negoci.",
+          teamOneTitle: "Estrategia",
+          teamOneText:
+            "Definim el missatge principal i el recorregut que ha de seguir el client.",
+          teamTwoTitle: "Disseny",
+          teamTwoText:
+            "Cuidem l'estetica, la jerarquia visual i la sensacio de fiabilitat.",
+          teamThreeTitle: "IA i publicacio",
+          teamThreeText:
+            "Integrem eines utils i deixem la pagina preparada per compartir.",
+          ctaEyebrow: "Parlem",
+          ctaTitle: "Explica'ns quin negoci vols millorar.",
+          ctaText: "Et respondrem amb una proposta clara i directa.",
+          ctaButton: "Contactar per WhatsApp",
           footerCity: "Neptunn - Barcelona"
         },
         en: {
           title: "Neptunn | AI websites for local businesses",
           description:
             "Neptunn creates clear, reliable AI-powered websites for local businesses in Barcelona.",
+          navHome: "Home",
           navServices: "Services",
+          navIncludes: "Includes",
           navProcess: "Process",
+          navTeam: "Team",
           navContact: "Contact",
           heroEyebrow: "Barcelona",
           heroTitle: "AI websites for local businesses.",
@@ -712,6 +1087,30 @@
           serviceTwoText: "Content and automation only where they add value.",
           serviceThreeTitle: "Direct contact",
           serviceThreeText: "WhatsApp, email and phone always visible.",
+          includesEyebrow: "Includes",
+          includesTitle: "Everything needed to go online with purpose.",
+          includesText:
+            "We focus on making your website easy to understand, trustworthy and ready for first contact.",
+          includeOneTitle: "Structure and message",
+          includeOneText:
+            "We organize the essentials: what you do, where you are, why to trust you and how to contact you.",
+          includeTwoTitle: "Responsive design",
+          includeTwoText:
+            "The site works on mobile, tablet and desktop with a clean, professional look.",
+          includeThreeTitle: "AI with intent",
+          includeThreeText:
+            "We use AI to speed up copy, ideas and workflows, then review the result so it sounds human.",
+          audienceEyebrow: "Who it is for",
+          audienceTitle: "Built for local businesses that need clarity.",
+          audienceOneTitle: "Restaurants and shops",
+          audienceOneText:
+            "Presentation, opening hours, location and direct contact in seconds.",
+          audienceTwoTitle: "Independent professionals",
+          audienceTwoText:
+            "A serious presence that builds trust before the first call.",
+          audienceThreeTitle: "Barcelona SMEs",
+          audienceThreeText:
+            "Simple websites that explain the offer clearly and bring real enquiries.",
           processEyebrow: "Process",
           processTitle: "Three steps. No overcomplication.",
           stepOneTitle: "Understand",
@@ -722,12 +1121,31 @@
           stepThreeTitle: "Publish",
           stepThreeText:
             "We leave everything ready so customers can contact you.",
+          teamEyebrow: "Team",
+          teamTitle: "Three partners, one close way of working.",
+          teamText:
+            "We combine strategy, design and technology so the website is not just good-looking: it has to help the business.",
+          teamOneTitle: "Strategy",
+          teamOneText:
+            "We define the main message and the path customers should follow.",
+          teamTwoTitle: "Design",
+          teamTwoText:
+            "We care for the visual hierarchy, brand feel and sense of reliability.",
+          teamThreeTitle: "AI and publishing",
+          teamThreeText:
+            "We integrate useful tools and leave the page ready to share.",
+          ctaEyebrow: "Let us talk",
+          ctaTitle: "Tell us which business you want to improve.",
+          ctaText: "We will reply with a clear, direct proposal.",
+          ctaButton: "Contact on WhatsApp",
           footerCity: "Neptunn - Barcelona"
         }
       };
 
       const metaDescription = document.querySelector('meta[name="description"]');
       const languageButtons = document.querySelectorAll("[data-lang]");
+      const menuButton = document.querySelector(".menu-toggle");
+      const menu = document.querySelector("#menu");
 
       function setLanguage(language) {
         const copy = translations[language] || translations.es;
@@ -757,6 +1175,20 @@
           setLanguage(button.getAttribute("data-lang"));
         });
       });
+
+      if (menuButton && menu) {
+        menuButton.addEventListener("click", () => {
+          const isOpen = menu.classList.toggle("is-open");
+          menuButton.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        menu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            menu.classList.remove("is-open");
+            menuButton.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
 
       setLanguage(localStorage.getItem("neptunn-language") || "es");
     </script>
