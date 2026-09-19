@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neptunn | Webs con IA para empresas locales</title>
+    <meta
+      name="description"
+      content="Neptunn es una agencia de Barcelona que crea webs profesionales con IA para empresas locales."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1f22'/%3E%3Cpath d='M17 42V18h7l16 17V18h7v24h-7L24 25v17z' fill='%23f6fbf9'/%3E%3Ccircle cx='48' cy='17' r='5' fill='%23ff8f70'/%3E%3C/svg%3E"
+    />
+    <style>
+      :root {
+        --ink: #0b1f22;
+        --ink-soft: #284044;
+        --paper: #f6fbf9;
+        --white: #ffffff;
+        --teal: #0b7f73;
+        --teal-soft: #dcefed;
+        --coral: #ff8f70;
+        --gold: #d2a84f;
+        --line: rgba(11, 31, 34, 0.14);
+        --shadow: 0 24px 70px rgba(11, 31, 34, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: var(--paper);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      .site-shell {
+        min-height: 100vh;
+        overflow: hidden;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+        background: rgba(246, 251, 249, 0.88);
+        backdrop-filter: blur(16px);
+      }
+
+      .nav-inner {
+        width: min(1160px, calc(100% - 32px));
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        min-height: 72px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        font-size: 1.16rem;
+      }
+
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        color: var(--white);
+        background: var(--ink);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .brand-mark::after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        right: 7px;
+        top: 7px;
+        background: var(--coral);
+      }
+
+      .brand-mark span {
+        position: relative;
+        font-size: 1.1rem;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        color: var(--ink-soft);
+        font-size: 0.95rem;
+      }
+
+      .nav-links a:hover {
+        color: var(--teal);
+      }
+
+      .contact-icons {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .icon-button {
+        width: 42px;
+        height: 42px;
+        display: inline-grid;
+        place-items: center;
+        border-radius: 8px;
+        color: var(--ink);
+        background: var(--white);
+        border: 1px solid var(--line);
+        box-shadow: 0 8px 24px rgba(11, 31, 34, 0.08);
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          background 180ms ease;
+      }
+
+      .icon-button:hover {
+        transform: translateY(-2px);
+        border-color: rgba(11, 127, 115, 0.34);
+        background: var(--teal-soft);
+      }
+
+      .icon-button svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .hero {
+        width: min(1160px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 76px 0 44px;
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        align-items: center;
+        gap: 46px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--teal);
+        font-size: 0.86rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 34px;
+        height: 2px;
+        background: var(--coral);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin: 18px 0 22px;
+        font-size: clamp(2.55rem, 6vw, 5.7rem);
+        line-height: 0.94;
+        max-width: 780px;
+      }
+
+      .hero-text {
+        font-size: 1.13rem;
+        color: var(--ink-soft);
+        max-width: 620px;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 30px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 48px;
+        padding: 0 18px;
+        border-radius: 8px;
+        font-weight: 800;
+        border: 1px solid transparent;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+      }
+
+      .button-primary {
+        background: var(--ink);
+        color: var(--white);
+        box-shadow: 0 18px 40px rgba(11, 31, 34, 0.18);
+      }
+
+      .button-secondary {
+        background: var(--white);
+        border-color: var(--line);
+        color: var(--ink);
+      }
+
+      .hero-media {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255, 255, 255, 0.68);
+        aspect-ratio: 16 / 10;
+      }
+
+      .hero-media img {
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .stats {
+        width: min(1160px, calc(100% - 32px));
+        margin: 18px auto 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .stat {
+        padding: 28px 24px;
+      }
+
+      .stat + .stat {
+        border-left: 1px solid var(--line);
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 2rem;
+        line-height: 1;
+      }
+
+      .stat span {
+        color: var(--ink-soft);
+      }
+
+      section {
+        width: min(1160px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 92px 0;
+      }
+
+      .section-heading {
+        max-width: 720px;
+        margin-bottom: 34px;
+      }
+
+      .section-heading h2 {
+        font-size: clamp(2rem, 4vw, 3.55rem);
+        line-height: 1;
+        margin-bottom: 16px;
+      }
+
+      .section-heading p {
+        color: var(--ink-soft);
+        font-size: 1.08rem;
+      }
+
+      .services {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .card {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 28px;
+        min-height: 252px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 16px 42px rgba(11, 31, 34, 0.06);
+      }
+
+      .card-icon {
+        width: 46px;
+        height: 46px;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        background: var(--teal-soft);
+        color: var(--teal);
+        margin-bottom: 22px;
+      }
+
+      .card-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      .card h3 {
+        font-size: 1.28rem;
+        margin-bottom: 12px;
+      }
+
+      .card p {
+        color: var(--ink-soft);
+        margin-bottom: 0;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 34px;
+        align-items: start;
+      }
+
+      .panel {
+        background: var(--ink);
+        color: var(--white);
+        border-radius: 8px;
+        padding: 34px;
+        min-height: 100%;
+      }
+
+      .panel p {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .process {
+        display: grid;
+        gap: 14px;
+      }
+
+      .step {
+        display: grid;
+        grid-template-columns: 58px 1fr;
+        gap: 18px;
+        padding: 22px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .step-number {
+        width: 46px;
+        height: 46px;
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        background: var(--white);
+        border: 1px solid var(--line);
+        color: var(--teal);
+        font-weight: 900;
+      }
+
+      .step h3 {
+        margin-bottom: 6px;
+      }
+
+      .step p {
+        color: var(--ink-soft);
+        margin-bottom: 0;
+      }
+
+      .team {
+        background: var(--white);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .team-inner {
+        width: min(1160px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 92px 0;
+        display: grid;
+        grid-template-columns: 0.92fr 1.08fr;
+        gap: 42px;
+        align-items: center;
+      }
+
+      .team-copy h2 {
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        line-height: 1;
+        margin-bottom: 18px;
+      }
+
+      .team-copy p {
+        color: var(--ink-soft);
+        font-size: 1.08rem;
+      }
+
+      .partners {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .partner {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 22px;
+        min-height: 180px;
+        background: var(--paper);
+      }
+
+      .partner strong {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .partner span {
+        color: var(--ink-soft);
+        font-size: 0.96rem;
+      }
+
+      .contact {
+        padding-bottom: 74px;
+      }
+
+      .contact-box {
+        background: var(--ink);
+        color: var(--white);
+        border-radius: 8px;
+        padding: clamp(28px, 5vw, 54px);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .contact-box h2 {
+        font-size: clamp(2rem, 4vw, 3.6rem);
+        line-height: 1;
+        margin-bottom: 14px;
+      }
+
+      .contact-box p {
+        color: rgba(255, 255, 255, 0.76);
+        max-width: 680px;
+        margin-bottom: 0;
+      }
+
+      .contact-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .contact-actions .icon-button {
+        width: 56px;
+        height: 56px;
+        color: var(--ink);
+      }
+
+      .footer {
+        width: min(1160px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 30px 0 46px;
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        color: var(--ink-soft);
+        font-size: 0.95rem;
+        border-top: 1px solid var(--line);
+      }
+
+      @media (max-width: 900px) {
+        .nav-inner {
+          min-height: 64px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .hero,
+        .split,
+        .team-inner,
+        .contact-box {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding-top: 48px;
+        }
+
+        .hero-media {
+          order: -1;
+        }
+
+        .services,
+        .partners,
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .stat + .stat {
+          border-left: 0;
+          border-top: 1px solid var(--line);
+        }
+
+        section,
+        .team-inner {
+          padding: 64px 0;
+        }
+
+        .contact-actions {
+          justify-content: flex-start;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .nav-inner,
+        .hero,
+        .stats,
+        section,
+        .team-inner,
+        .footer {
+          width: min(100% - 24px, 1160px);
+        }
+
+        .brand span:last-child {
+          display: none;
+        }
+
+        .hero-actions {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .card,
+        .panel,
+        .partner {
+          padding: 22px;
+        }
+
+        .step {
+          grid-template-columns: 1fr;
+        }
+
+        .footer {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="nav" aria-label="Navegacion principal">
+        <div class="nav-inner">
+          <a class="brand" href="#top" aria-label="Neptunn inicio">
+            <span class="brand-mark" aria-hidden="true"><span>N</span></span>
+            <span>Neptunn</span>
+          </a>
+          <nav class="nav-links" aria-label="Secciones">
+            <a href="#servicios">Servicios</a>
+            <a href="#proceso">Proceso</a>
+            <a href="#equipo">Equipo</a>
+            <a href="#contacto">Contacto</a>
+          </nav>
+          <div class="contact-icons" aria-label="Contactos directos">
+            <a
+              class="icon-button"
+              href="mailto:neptunncompany@gmail.com"
+              aria-label="Enviar email a Neptunn"
+              title="Enviar email"
+            >
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M4 6.5h16v11H4z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="m4.8 7.2 7.2 6 7.2-6"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <a
+              class="icon-button"
+              href="tel:+34631757391"
+              aria-label="Llamar a Neptunn"
+              title="Llamar"
+            >
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M8.4 5.2 6.7 6.9c-.8.8-.8 2 0 3.4 1.8 3.3 3.7 5.2 7 7 .9.5 2 .4 2.7-.3l1.9-1.9-3-3-1.5 1.5c-1.7-.9-2.7-1.9-3.6-3.6l1.5-1.5z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <a
+              class="icon-button"
+              href="https://wa.me/34631757391"
+              aria-label="Abrir WhatsApp con Neptunn"
+              title="WhatsApp"
+            >
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M7.5 19.2 4 20l.9-3.3A8 8 0 1 1 7.5 19.2Z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9.4 8.8c.2-.3.4-.4.7-.3l1 .3c.3.1.4.4.3.7l-.3.8c-.1.2 0 .4.2.6.5.7 1.1 1.2 1.9 1.6.2.1.4.1.6 0l.7-.4c.3-.2.6-.1.8.2l.5.9c.2.3.1.6-.1.8-.6.6-1.3.8-2.1.5-2.2-.7-3.8-2.1-4.8-4.2-.3-.6-.1-1.1.6-1.5Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <main id="top">
+        <div class="hero">
+          <div>
+            <span class="eyebrow">Barcelona - Webs con IA</span>
+            <h1>Webs claras, rapidas y pensadas para vender mejor.</h1>
+            <p class="hero-text">
+              Neptunn es una agencia joven de Barcelona que ayuda a negocios
+              locales a tener una presencia digital seria sin complicarse:
+              diseno, desarrollo, automatizaciones con IA y una web preparada
+              para convertir visitas en conversaciones reales.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="mailto:neptunncompany@gmail.com">
+                Pedir una propuesta
+              </a>
+              <a class="button button-secondary" href="https://wa.me/34631757391">
+                Escribir por WhatsApp
+              </a>
+            </div>
+          </div>
+          <figure class="hero-media" aria-label="Estudio digital de Neptunn">
+            <img
+              src="assets/neptunn-hero.png"
+              alt="Estudio digital en Barcelona con pantallas de diseno web y automatizacion"
+            />
+          </figure>
+        </div>
+
+        <div class="stats" aria-label="Resumen de Neptunn">
+          <div class="stat">
+            <strong>3</strong>
+            <span>socios implicados en cada proyecto</span>
+          </div>
+          <div class="stat">
+            <strong>IA</strong>
+            <span>para agilizar contenido, procesos y captacion</span>
+          </div>
+          <div class="stat">
+            <strong>BCN</strong>
+            <span>cercania local con criterio profesional</span>
+          </div>
+        </div>
+
+        <section id="servicios">
+          <div class="section-heading">
+            <h2>Lo esencial para que una empresa local se vea grande.</h2>
+            <p>
+              Construimos webs sencillas de entender, faciles de mantener y con
+              una imagen cuidada. La IA entra donde suma: textos iniciales,
+              estructura, automatizaciones, respuestas rapidas y pequenos flujos
+              que ahorran tiempo.
+            </p>
+          </div>
+          <div class="services">
+            <article class="card">
+              <div>
+                <div class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M4 5h16v14H4zM4 9h16"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <h3>Web corporativa</h3>
+                <p>
+                  Una pagina profesional para explicar que haces, ganarte la
+                  confianza del cliente y facilitar que te contacten.
+                </p>
+              </div>
+            </article>
+            <article class="card">
+              <div>
+                <div class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M12 4v16M5 12h14M7 7l10 10M17 7 7 17"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <h3>Contenido con IA</h3>
+                <p>
+                  Mensajes, secciones y textos adaptados al negocio para que la
+                  web no suene vacia ni generica.
+                </p>
+              </div>
+            </article>
+            <article class="card">
+              <div>
+                <div class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M7 8h10M7 12h6M7 16h4"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M5 4h14v16H5z"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <h3>Captacion directa</h3>
+                <p>
+                  Botones claros, WhatsApp, llamada, email y estructura pensada
+                  para que el cliente sepa que hacer despues.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="proceso">
+          <div class="split">
+            <div class="panel">
+              <span class="eyebrow">Metodo simple</span>
+              <h2>Primero entendemos el negocio. Luego lo convertimos en web.</h2>
+              <p>
+                No empezamos por una plantilla. Empezamos por lo que vendes,
+                quien te compra y que dudas tiene antes de contactar contigo.
+                Desde ahi bajamos a una web limpia, rapida y creible.
+              </p>
+            </div>
+            <div class="process">
+              <article class="step">
+                <div class="step-number">01</div>
+                <div>
+                  <h3>Diagnostico rapido</h3>
+                  <p>
+                    Revisamos el negocio, la competencia local y el mensaje que
+                    deberia quedar claro en los primeros segundos.
+                  </p>
+                </div>
+              </article>
+              <article class="step">
+                <div class="step-number">02</div>
+                <div>
+                  <h3>Diseno y contenido</h3>
+                  <p>
+                    Preparamos una estructura con textos, jerarquia visual y
+                    llamadas a la accion sin meter ruido innecesario.
+                  </p>
+                </div>
+              </article>
+              <article class="step">
+                <div class="step-number">03</div>
+                <div>
+                  <h3>Entrega lista para usar</h3>
+                  <p>
+                    Dejamos una web responsive, con contacto directo y base
+                    tecnica para seguir creciendo cuando el negocio lo necesite.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <div class="team" id="equipo">
+          <div class="team-inner">
+            <div class="team-copy">
+              <span class="eyebrow">Tres socios</span>
+              <h2>Un equipo pequeno para trabajar cerca.</h2>
+              <p>
+                Neptunn esta formado por tres socios. Eso permite moverse rapido,
+                cuidar los detalles y mantener una comunicacion directa durante
+                todo el proyecto. La idea es sencilla: que cada cliente sepa en
+                que punto esta su web, por que se toma cada decision y como puede
+                sacarle partido desde el primer dia.
+              </p>
+            </div>
+            <div class="partners" aria-label="Areas de los tres socios">
+              <div class="partner">
+                <strong>Estrategia</strong>
+                <span>
+                  Define el enfoque, el mensaje y el recorrido que debe seguir
+                  un cliente local para acabar contactando.
+                </span>
+              </div>
+              <div class="partner">
+                <strong>Diseno</strong>
+                <span>
+                  Cuida la identidad visual, la sensacion profesional y la
+                  claridad de cada seccion en movil y ordenador.
+                </span>
+              </div>
+              <div class="partner">
+                <strong>Tecnologia</strong>
+                <span>
+                  Construye la web, conecta los contactos y aplica IA donde
+                  realmente ahorra tiempo al negocio.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="contact" id="contacto">
+          <div class="contact-box">
+            <div>
+              <span class="eyebrow">Hablemos</span>
+              <h2>Si tu negocio necesita una web, empezamos por una conversacion.</h2>
+              <p>
+                Cuentalo en dos lineas: que empresa tienes, que quieres vender
+                mejor y que te gustaria que hiciera tu web. Te responderemos con
+                una propuesta clara y sin marearte.
+              </p>
+            </div>
+            <div class="contact-actions" aria-label="Contactar con Neptunn">
+              <a
+                class="icon-button"
+                href="mailto:neptunncompany@gmail.com"
+                aria-label="Enviar email a neptunncompany@gmail.com"
+                title="neptunncompany@gmail.com"
+              >
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M4 6.5h16v11H4z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="m4.8 7.2 7.2 6 7.2-6"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <a
+                class="icon-button"
+                href="tel:+34631757391"
+                aria-label="Llamar al +34 631 757 391"
+                title="+34 631 757 391"
+              >
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M8.4 5.2 6.7 6.9c-.8.8-.8 2 0 3.4 1.8 3.3 3.7 5.2 7 7 .9.5 2 .4 2.7-.3l1.9-1.9-3-3-1.5 1.5c-1.7-.9-2.7-1.9-3.6-3.6l1.5-1.5z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <a
+                class="icon-button"
+                href="https://wa.me/34631757391"
+                aria-label="Abrir WhatsApp con +34 631 757 391"
+                title="WhatsApp"
+              >
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M7.5 19.2 4 20l.9-3.3A8 8 0 1 1 7.5 19.2Z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M9.4 8.8c.2-.3.4-.4.7-.3l1 .3c.3.1.4.4.3.7l-.3.8c-.1.2 0 .4.2.6.5.7 1.1 1.2 1.9 1.6.2.1.4.1.6 0l.7-.4c.3-.2.6-.1.8.2l.5.9c.2.3.1.6-.1.8-.6.6-1.3.8-2.1.5-2.2-.7-3.8-2.1-4.8-4.2-.3-.6-.1-1.1.6-1.5Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>Neptunn - Agencia de webs con IA en Barcelona</span>
+        <span>neptunncompany@gmail.com - +34 631 757 391</span>
+      </footer>
+    </div>
+  </body>
+</html>
