@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Forn del Born | Pa artesà a Barcelona",
+  title: "Distrito Barber | Barberia a Barcelona",
   description:
-    "Pa artesà, brioixeria acabada de fer i cafè al cor del Born, Barcelona.",
+    "Demo website for a modern local barbershop in Barcelona with clear services, prices and WhatsApp booking.",
   other: {
     "codex-preview": "development",
   },
