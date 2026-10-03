@@ -84,8 +84,8 @@ const translations = {
     nav: {
       home: "Inici",
       services: "Serveis",
-      shop: "Barbería",
-      gallery: "Galería",
+      shop: "Barberia",
+      gallery: "Galeria",
       contact: "Contacte",
       reserve: "Reservar",
       menu: "Obrir menú",
@@ -116,79 +116,36 @@ const translations = {
           price: "18 €",
           description:
             "Tall personalitzat segons el teu estil, acabat i pentinat final.",
-          includesTitle: "Inclou",
-          includes: [
-            "Consulta breu amb el barber",
-            "Tall amb tisora i/o maquina",
-            "Acabat",
-            "Pentinat final",
-          ],
         },
         {
           name: "Degradat / Fade",
           price: "20 €",
           description:
-            "Tall on els laterals i la part posterior passen progressivament de molt curt a més llarg, creant un degradat net i precís.",
-          includesTitle: "Inclou",
-          includes: [
-            "Elecció de l’altura del degradat",
-            "Treball detallat amb màquina",
-            "Connexió amb la part superior",
-            "Acabat i pentinat",
-          ],
+            "Laterals progressivament més curts per aconseguir un degradat net i precís.",
         },
         {
           name: "Barba",
           price: "12 €",
           description:
-            "Retoc, definició i perfilat de la barba per donar-li una forma neta i cuidada.",
-          includesTitle: "Inclou",
-          includes: [
-            "Retall de llargada",
-            "Definició de la forma",
-            "Perfilat de coll i galtes",
-            "Acabat final",
-          ],
+            "Retall i perfilat per donar forma i un acabat cuidat a la barba.",
         },
         {
           name: "Tall + Barba",
           price: "28 €",
           description:
-            "El servei complet: tall de cabell i treball de barba en una mateixa visita.",
-          includesTitle: "Inclou",
-          includes: [
-            "Tall personalitzat",
-            "Acabat del cabell",
-            "Retall i forma de la barba",
-            "Perfilat",
-            "Acabat final",
-          ],
+            "Tall de cabell i servei de barba en una mateixa visita.",
         },
         {
           name: "Tall a màquina",
           price: "14 €",
           description:
-            "Tall uniforme o molt curt fet principalment amb màquina, ideal si busques un tall senzill i ràpid.",
-          includesTitle: "Inclou",
-          includes: [
-            "Elecció de llargada",
-            "Tall uniforme amb màquina",
-            "Repàs de contorns",
-            "Acabat net",
-          ],
+            "Tall curt i uniforme realitzat principalment amb màquina.",
         },
         {
           name: "Tall infantil",
           price: "15 €",
           description:
-            "Tall de cabell per a nens, adaptat al seu estil i amb un servei ràpid i còmode.",
-          includesTitle: "Inclou",
-          includes: [
-            "Tall adaptat al nen",
-            "Servei àgil",
-            "Acabat suau",
-            "Pentinat final",
-          ],
+            "Tall adaptat per a nens amb un servei còmode i senzill.",
         },
       ],
     },
@@ -255,8 +212,8 @@ const translations = {
     nav: {
       home: "Inicio",
       services: "Servicios",
-      shop: "Barberia",
-      gallery: "Galeria",
+      shop: "Barbería",
+      gallery: "Galería",
       contact: "Contacto",
       reserve: "Reservar",
       menu: "Abrir menú",
@@ -287,79 +244,36 @@ const translations = {
           price: "18 €",
           description:
             "Corte personalizado según tu estilo, acabado y peinado final.",
-          includesTitle: "Incluye",
-          includes: [
-            "Breve consulta con el barbero",
-            "Corte con tijera y/o máquina",
-            "Acabado",
-            "Peinado final",
-          ],
         },
         {
           name: "Degradado / Fade",
           price: "20 €",
           description:
-            "Corte en el que los laterales y la parte posterior pasan progresivamente de muy corto a más largo, creando un degradado limpio.",
-          includesTitle: "Incluye",
-          includes: [
-            "Elección de la altura del degradado",
-            "Trabajo detallado con máquina",
-            "Conexión con la parte superior",
-            "Acabado y peinado",
-          ],
+            "Degradado progresivo en laterales y parte posterior para un acabado limpio.",
         },
         {
           name: "Barba",
           price: "12 €",
           description:
-            "Recorte, definición y perfilado para conseguir una barba limpia y bien cuidada.",
-          includesTitle: "Incluye",
-          includes: [
-            "Recorte de longitud",
-            "Definición de la forma",
-            "Perfilado de cuello y mejillas",
-            "Acabado final",
-          ],
+            "Recorte y perfilado para dar forma y un acabado cuidado a la barba.",
         },
         {
           name: "Corte + Barba",
           price: "28 €",
           description:
-            "Servicio completo de corte de pelo y arreglo de barba en una misma visita.",
-          includesTitle: "Incluye",
-          includes: [
-            "Corte personalizado",
-            "Acabado del cabello",
-            "Recorte y forma de la barba",
-            "Perfilado",
-            "Acabado final",
-          ],
+            "Corte de pelo y servicio de barba en una misma visita.",
         },
         {
           name: "Corte a máquina",
           price: "14 €",
           description:
-            "Corte uniforme o muy corto hecho principalmente con máquina, ideal si buscas un corte sencillo y rápido.",
-          includesTitle: "Incluye",
-          includes: [
-            "Elección de longitud",
-            "Corte uniforme con máquina",
-            "Repaso de contornos",
-            "Acabado limpio",
-          ],
+            "Corte corto y uniforme realizado principalmente con máquina.",
         },
         {
           name: "Corte infantil",
           price: "15 €",
           description:
-            "Corte de pelo para niños, adaptado a su estilo y con un servicio rápido y cómodo.",
-          includesTitle: "Incluye",
-          includes: [
-            "Corte adaptado al niño",
-            "Servicio ágil",
-            "Acabado suave",
-            "Peinado final",
-          ],
+            "Corte adaptado para niños con un servicio cómodo y sencillo.",
         },
       ],
     },
@@ -458,85 +372,42 @@ const translations = {
           price: "€18",
           description:
             "A personalized haircut based on your style, including finishing and styling.",
-          includesTitle: "Includes",
-          includes: [
-            "Short consultation",
-            "Scissors and/or clipper cut",
-            "Finishing",
-            "Final styling",
-          ],
         },
         {
           name: "Fade haircut",
           price: "€20",
           description:
-            "A haircut where the sides and back gradually transition from very short hair to longer hair, creating a clean blended effect.",
-          includesTitle: "Includes",
-          includes: [
-            "Choice of fade height",
-            "Detailed clipper work",
-            "Blend into the top",
-            "Finishing and styling",
-          ],
+            "A gradual blend on the sides and back for a clean, precise finish.",
         },
         {
           name: "Beard trim",
           price: "€12",
           description:
-            "Trimming, shaping and defining the beard for a clean and well-groomed finish.",
-          includesTitle: "Includes",
-          includes: [
-            "Length trim",
-            "Beard shaping",
-            "Neck and cheek line-up",
-            "Final finish",
-          ],
+            "Trim and line-up to shape the beard with a well-groomed finish.",
         },
         {
           name: "Haircut + Beard",
           price: "€28",
           description:
             "Complete haircut and beard grooming service in one appointment.",
-          includesTitle: "Includes",
-          includes: [
-            "Personalized haircut",
-            "Hair finish",
-            "Beard trim and shape",
-            "Line-up",
-            "Final finish",
-          ],
         },
         {
           name: "Clipper cut",
           price: "€14",
           description:
-            "A uniform or very short haircut done mainly with clippers, ideal for a simple short look.",
-          includesTitle: "Includes",
-          includes: [
-            "Length choice",
-            "Uniform clipper cut",
-            "Clean edge check",
-            "Neat finish",
-          ],
+            "A short, even haircut done mainly with clippers.",
         },
         {
           name: "Kids haircut",
           price: "€15",
           description:
-            "Haircut for children, adapted to their style with a quick and comfortable service.",
-          includesTitle: "Includes",
-          includes: [
-            "Child-friendly haircut",
-            "Quick service",
-            "Soft finish",
-            "Final styling",
-          ],
+            "A comfortable, simple haircut service adapted for children.",
         },
       ],
     },
     shop: {
       label: "The barbershop",
-      title: "No rush. No fuss.",
+      title: "No rush. No complications.",
       text: "A local space to come in, switch off and leave with a good cut.",
       points: [
         "Personal attention",
@@ -656,24 +527,28 @@ export default function Home() {
   return (
     <main
       id="home"
-      className="min-h-screen overflow-hidden bg-[#f5f0e8] text-[#151515]"
+      className="min-h-screen overflow-x-hidden bg-[#f5f0e8] text-[#151515]"
     >
       <header
         className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
           scrolled || menuOpen
             ? "border-black/10 bg-[#f5f0e8]/95 shadow-[0_16px_40px_rgba(0,0,0,0.07)] backdrop-blur-xl"
-            : "border-white/10 bg-[#101010]/20 text-white backdrop-blur-[2px]"
+            : "border-white/10 bg-[#101010]/15 text-white backdrop-blur-[2px]"
         }`}
       >
-        <nav className="site-container flex h-[72px] items-center justify-between gap-4">
+        <nav
+          className={`relative transition-[height] duration-300 ${
+            scrolled || menuOpen ? "h-[66px]" : "h-[88px]"
+          }`}
+        >
           <button
-            className="group flex items-center gap-3 text-left"
+            className={`center-brand ${scrolled ? "center-brand-hidden" : ""}`}
             onClick={() => scrollTo("home")}
             type="button"
           >
             <span
-              className={`grid h-10 w-10 place-items-center border text-[0.72rem] font-black transition ${
-                scrolled || menuOpen
+              className={`grid h-11 w-11 place-items-center border text-[0.72rem] font-black transition sm:h-12 sm:w-12 ${
+                menuOpen
                   ? "border-black/15 bg-[#151515] text-[#f5f0e8]"
                   : "border-white/35 bg-white/10 text-white"
               }`}
@@ -681,12 +556,12 @@ export default function Home() {
               DB
             </span>
             <span>
-              <span className="block text-base font-black uppercase leading-none tracking-[0.08em] sm:text-lg">
+              <span className="block text-lg font-black uppercase leading-none tracking-[0.08em] sm:text-xl">
                 Distrito Barber
               </span>
               <span
-                className={`mt-1 block text-[0.66rem] font-bold uppercase tracking-[0.16em] ${
-                  scrolled || menuOpen ? "text-[#6f6559]" : "text-white/72"
+                className={`mt-1 block text-[0.66rem] font-bold uppercase tracking-[0.18em] ${
+                  menuOpen ? "text-[#6f6559]" : "text-white/72"
                 }`}
               >
                 Barcelona
@@ -694,8 +569,23 @@ export default function Home() {
             </span>
           </button>
 
-          <div className="hidden items-center gap-6 lg:flex">
-            <div className="flex items-center gap-5 text-[0.86rem] font-bold uppercase tracking-[0.08em]">
+          <div className="site-container relative z-30 flex h-full items-center justify-between gap-4">
+            <div className="hidden lg:flex">
+              <LanguageSwitch
+                current={language}
+                label={t.nav.language}
+                onChange={changeLanguage}
+                variant={scrolled || menuOpen ? "light" : "dark"}
+              />
+            </div>
+
+            <div
+              className={`nav-links-scroll hidden lg:flex ${
+                scrolled
+                  ? "nav-links-scroll-visible"
+                  : "nav-links-scroll-hidden"
+              }`}
+            >
               {navItems.map((item) => (
                 <button
                   className="group relative py-2 transition hover:text-[#9a7a55]"
@@ -708,39 +598,51 @@ export default function Home() {
                 </button>
               ))}
             </div>
-            <LanguageSwitch
-              current={language}
-              label={t.nav.language}
-              onChange={changeLanguage}
-              variant={scrolled || menuOpen ? "light" : "dark"}
-            />
-            <a
-              className={`nav-cta ${
-                scrolled || menuOpen ? "nav-cta-light" : "nav-cta-dark"
-              }`}
-              href={whatsappUrl}
-              rel="noreferrer"
-              target="_blank"
-            >
-              <MessageCircle size={17} />
-              {t.nav.reserve}
-            </a>
-          </div>
 
-          <button
-            aria-controls="mobile-menu"
-            aria-expanded={menuOpen}
-            aria-label={menuOpen ? t.nav.close : t.nav.menu}
-            className={`grid h-11 w-11 place-items-center border transition lg:hidden ${
-              scrolled || menuOpen
-                ? "border-black/15 bg-white/60 text-[#151515]"
-                : "border-white/35 bg-white/10 text-white"
-            }`}
-            onClick={() => setMenuOpen((open) => !open)}
-            type="button"
-          >
-            {menuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+            <div className="hidden lg:block">
+              <a
+                className={`nav-cta ${
+                  scrolled || menuOpen ? "nav-cta-light" : "nav-cta-dark"
+                }`}
+                href={whatsappUrl}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <MessageCircle size={17} />
+                {t.nav.reserve}
+              </a>
+            </div>
+
+            <div
+              className={`lg:hidden ${
+                scrolled
+                  ? "opacity-100"
+                  : "pointer-events-none opacity-0"
+              } transition-opacity duration-300`}
+            >
+              <LanguageSwitch
+                current={language}
+                label={t.nav.language}
+                onChange={changeLanguage}
+                variant={scrolled || menuOpen ? "light" : "dark"}
+              />
+            </div>
+
+            <button
+              aria-controls="mobile-menu"
+              aria-expanded={menuOpen}
+              aria-label={menuOpen ? t.nav.close : t.nav.menu}
+              className={`grid h-11 w-11 place-items-center border transition lg:hidden ${
+                scrolled || menuOpen
+                  ? "border-black/15 bg-white/60 text-[#151515]"
+                  : "border-white/35 bg-white/10 text-white"
+              }`}
+              onClick={() => setMenuOpen((open) => !open)}
+              type="button"
+            >
+              {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </nav>
 
         {menuOpen ? (
@@ -804,7 +706,7 @@ export default function Home() {
               {t.hero.eyebrow}
             </motion.p>
             <motion.h1
-              className="mt-5 max-w-[9.5ch] text-[clamp(4rem,17vw,10.5rem)] font-black uppercase leading-[0.82] tracking-normal text-white lg:text-[clamp(6.3rem,9.4vw,10.5rem)]"
+              className="responsive-heading mt-5 max-w-[10ch] text-[clamp(3.2rem,16vw,10rem)] font-black uppercase leading-[0.9] tracking-normal text-white sm:leading-[0.86] lg:text-[clamp(5.8rem,9vw,10rem)]"
               variants={fadeUp}
             >
               {t.hero.title}
@@ -869,31 +771,18 @@ export default function Home() {
         <div className="border-t border-black/15">
           {t.services.items.map((service, index) => (
             <Reveal delay={index * 0.035} key={service.name}>
-              <article className="grid gap-5 border-b border-black/15 py-6 sm:py-7 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10">
-                <div>
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="max-w-[12rem] text-2xl font-black uppercase leading-none tracking-normal sm:max-w-none sm:text-3xl">
-                      {service.name}
-                    </h3>
-                    <p className="shrink-0 text-2xl font-black leading-none text-[#8a6a45] sm:text-3xl">
-                      {service.price}
-                    </p>
-                  </div>
-                  <p className="mt-4 max-w-2xl text-[0.98rem] leading-7 text-[#4f4943] sm:text-base">
-                    {service.description}
+              <article className="border-b border-black/15 py-6 sm:py-7">
+                <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
+                  <h3 className="min-w-0 overflow-wrap-anywhere text-[clamp(1.35rem,6vw,2rem)] font-black uppercase leading-[0.98] tracking-normal">
+                    {service.name}
+                  </h3>
+                  <p className="shrink-0 whitespace-nowrap text-[clamp(1.35rem,6vw,2rem)] font-black leading-none text-[#8a6a45]">
+                    {service.price}
                   </p>
                 </div>
-                <div className="grid gap-2 text-sm text-[#5f574f] sm:grid-cols-2">
-                  <p className="text-xs font-black uppercase tracking-[0.14em] text-[#8a6a45] sm:col-span-2">
-                    {service.includesTitle}
-                  </p>
-                  {service.includes.map((item) => (
-                    <div className="flex items-center gap-2" key={item}>
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#151515]" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
+                <p className="mt-3 max-w-2xl text-[0.98rem] leading-7 text-[#4f4943] sm:text-base">
+                  {service.description}
+                </p>
               </article>
             </Reveal>
           ))}
@@ -1008,7 +897,7 @@ export default function Home() {
 
       <Section className="bg-[#151515] py-20 text-white sm:py-24">
         <Reveal>
-          <h2 className="max-w-3xl text-[clamp(2.5rem,9vw,5.6rem)] font-black uppercase leading-[0.9]">
+          <h2 className="responsive-heading max-w-3xl text-[clamp(2.4rem,9vw,5.6rem)] font-black uppercase leading-[0.95]">
             {t.reviews.title}
           </h2>
         </Reveal>

@@ -101,6 +101,7 @@ html {
 
 body {
   min-width: 320px;
+  overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
   font-family: Inter, Arial, Helvetica, sans-serif;
@@ -135,9 +136,70 @@ a {
 .section-title {
   font-size: clamp(2.75rem, 8vw, 6.7rem);
   font-weight: 950;
-  line-height: 0.88;
+  line-height: 0.96;
   letter-spacing: 0;
   text-transform: uppercase;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.responsive-heading {
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.overflow-wrap-anywhere {
+  overflow-wrap: anywhere;
+}
+
+.center-brand {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: min(74vw, 320px);
+  transform: translate(-50%, -50%);
+  text-align: left;
+  transition:
+    opacity 260ms ease,
+    transform 260ms ease;
+}
+
+.center-brand-hidden {
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, calc(-50% - 10px));
+}
+
+.nav-links-scroll {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.45rem);
+  transform: translate(-50%, -50%);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    opacity 260ms ease,
+    transform 260ms ease;
+}
+
+.nav-links-scroll-hidden {
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, calc(-50% + 8px));
+}
+
+.nav-links-scroll-visible {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translate(-50%, -50%);
 }
 
 .button-primary,
@@ -399,8 +461,13 @@ a {
   }
 
   .section-title {
-    font-size: clamp(2.5rem, 13vw, 4.1rem);
-    line-height: 0.92;
+    font-size: clamp(2.35rem, 12vw, 4rem);
+    line-height: 1;
+  }
+
+  .center-brand {
+    gap: 0.55rem;
+    max-width: min(66vw, 220px);
   }
 
   .button-primary,
